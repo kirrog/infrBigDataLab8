@@ -1,7 +1,10 @@
-# infrBigDataLab6
+# infrBigDataLab8
 
-Commands:
-- `pip install -f requirements.txt`
-- `/opt/spark/bin/spark-submit src/word_count_example.py`
-- `/opt/spark/bin/spark-submit main.py`
-- `docker compose up --build`
+## Run
+`minikube start`
+
+Перенести `sql/init.sql` и `data/openfood.csv` на хост в `/ITMO_Big_Data_lab7`
+
+`./deploy-mssql.sh`
+
+`./deploy-spark-app.sh`

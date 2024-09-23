@@ -20,6 +20,10 @@ class DataMart:
             config.spark.executor_memory,
             config.spark.executor_cores,
             config.spark.driver_cores,
+            config.spark.dynamic_allocation,
+            config.spark.min_executors,
+            config.spark.max_executors,
+            config.spark.initial_executors
         )
         self.datamart = sc._jvm.DataMart(spark_config, db_config)
 

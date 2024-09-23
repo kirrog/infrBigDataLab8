@@ -19,6 +19,10 @@ class SparkConfig:
     executor_memory: str = "16g"
     executor_cores: int = 1
     driver_cores: int = 1
+    dynamic_allocation: bool = True
+    min_executors: int = 1
+    max_executors: int = 10
+    initial_executors: int = 2
 
 
 class DatabaseConfig:
