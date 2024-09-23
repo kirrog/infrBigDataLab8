@@ -1,15 +1,15 @@
-FROM python:3.9.1-alpine
+FROM spark:3.5.1-scala2.12-java17-python3-ubuntu
 
-RUN apk add curl
-RUN apk add gcc
-RUN apk add g++
-RUN apk add --no-cache gnupg
-RUN apk add unixodbc-dev
-RUN mkdir /usr/src/app
-WORKDIR /usr/src/app
-COPY ./install.sh .
-RUN ./install.sh
-COPY ./requirements.txt .
+WORKDIR /app
+
+USER root
+
+ENV PYTHONPATH="${PYTHONPATH}:/app"
+
+COPY . /app
+
+RUN ln -sf $(which python3) /usr/bin/python && \
+    ln -sf $(which pip3) /usr/bin/pip
+
+RUN python3 -m pip install --upgrade pip
 RUN pip install -r requirements.txt
-ENV PYTHONUNBUFFERED 1
-COPY . .
